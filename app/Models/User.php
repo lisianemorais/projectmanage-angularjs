@@ -1,6 +1,6 @@
 <?php
 
-namespace projectmanager;
+namespace projectmanager\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

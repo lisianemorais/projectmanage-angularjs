@@ -3,20 +3,32 @@
 namespace projectmanager\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use projectmanager\Http\Requests;
-use projectmanager\Http\Controllers\Controller;
+use projectmanager\Repositories\ClienteRepository;
+use projectmanager\Services\ClienteService;
 
 class ClientesController extends Controller
 {
+    
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     *  @var ClienteRepository
      */
+    private $repository;
+
+    /**
+     * @var ClienteService
+     */
+    private $service;
+
+
+    public function __construct( ClienteRepository $repository, ClienteService $service)
+    {
+        $this->repository = $repository;
+        $this->service = $service;
+    }
+
     public function index()
     {
-        return \projectmanager\Clientes::all();
+        return $this->repository->all();
     }
 
 
@@ -26,9 +38,9 @@ class ClientesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        return \projectmanager\Clientes::create($request->all());
+    public function store( Request $request)
+    {   
+        return $this->repository->create($request->all());
     }
 
     /**
@@ -39,7 +51,7 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        return \projectmanager\Clientes::find($id);
+        return $this->repository->find($id);
     }
 
     
@@ -53,7 +65,7 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return \projectmanager\Clientes::find($id)->update($request->all());
+        return $this->repository->find($id)->update($request->all());
     }
 
     /**
@@ -64,6 +76,6 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        return \projectmanager\Clientes::find($id)->delete();
+        return $this->repository->find($id)->delete();
     }
 }
