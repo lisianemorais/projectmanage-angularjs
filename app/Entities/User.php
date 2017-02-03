@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use projectmanager\Entities\Project;
+
 
 
 class User extends Model implements AuthenticatableContract,
@@ -37,4 +39,11 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
+
 }
