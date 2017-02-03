@@ -1,8 +1,9 @@
 <?php
 
-namespace projectmanager\Models;
+namespace projectmanager\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use projectmanager\Entities\Project;
 
 class Clientes extends Model
 {
@@ -14,4 +15,10 @@ class Clientes extends Model
     	'endereco',
     	'obs'
     ];
+
+
+    public function project()
+    {
+    	return $this->hasMany(Project::class);
+    }
 }

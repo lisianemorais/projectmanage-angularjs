@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(projectmanager\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(projectmanager\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -21,7 +21,7 @@ $factory->define(projectmanager\Models\User::class, function (Faker\Generator $f
 });
 
 
-$factory->define(projectmanager\Models\Clientes::class, function (Faker\Generator $faker) {
+$factory->define(projectmanager\Entities\Clientes::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'responsavel' => $faker->name,
@@ -32,4 +32,24 @@ $factory->define(projectmanager\Models\Clientes::class, function (Faker\Generato
 
     ];
 });
-	
+
+$factory->define(projectmanager\Entities\Project::class, function (Faker\Generator $faker) {
+    return [
+        'owner_id' => rand(1,5),
+        'cliente_id' => rand(1,5),
+        'name' => $faker->word,
+        'descricao' => $faker->sentence,
+        'progresso' => rand(1,100),
+        'status' => rand(1,3),
+        'data_fim' => $faker->dateTime('now'),
+
+    ];
+});
+
+$factory->define(projectmanager\Entities\NotasProject::class, function (Faker\Generator $faker) {
+    return [
+        'project_id' => rand(1,5),
+        'titulo' => $faker->word,
+        'nota' => $faker->paragraph,
+    ];
+});

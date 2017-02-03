@@ -4,7 +4,7 @@ namespace projectmanager\Services;
 
 use projectmanager\Repositories\ClienteRepository;
 use projectmanager\Validators\ClienteValidator;
-use projectmanager\Validators\Exceptions\ValidatorException;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ClienteService
 {	
