@@ -36,7 +36,7 @@ $factory->define(projectmanager\Entities\Clientes::class, function (Faker\Genera
 $factory->define(projectmanager\Entities\Project::class, function (Faker\Generator $faker) {
     return [
         'owner_id' => rand(1,5),
-        'cliente_id' => rand(1,5),
+        'clientes_id' => rand(1,5),
         'name' => $faker->word,
         'descricao' => $faker->sentence,
         'progresso' => rand(1,100),

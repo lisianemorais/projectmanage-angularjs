@@ -17,8 +17,8 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->integer('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('users');
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->integer('clientes_id')->unsigned();
+            $table->foreign('clientes_id')->references('id')->on('clientes');
             $table->string('name');
             $table->text('descricao');
             $table->smallInteger('progresso')->unsigned();

@@ -26,9 +26,9 @@ class NotasProjectController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index($id)
     {
-        return $this->repository->all();
+        return $this->repository->findWhere(['project_id'=> $id]);;
     }
 
 
@@ -49,9 +49,9 @@ class NotasProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $notaId)
     {
-        return $this->repository->find($id);
+        return $this->repository->findwhere(['project_id'=>$id, 'id'=>$notaId]);
     }
 
     
@@ -63,9 +63,9 @@ class NotasProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $notaId)
     {
-        return $this->repository->find($id)->update($request->all());
+        return $this->repository->find($notaId)->update($request->all());
     }
 
     /**
@@ -74,8 +74,8 @@ class NotasProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $notaId)
     {
-        return $this->repository->find($id)->delete();
+        return $this->repository->find($notaId)->delete();
     }
 }
