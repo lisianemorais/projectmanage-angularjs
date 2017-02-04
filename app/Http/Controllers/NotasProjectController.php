@@ -40,7 +40,7 @@ class NotasProjectController extends Controller
      */
     public function store( Request $request)
     {   
-        return $this->repository->create($request->all());
+        return $this->service->create($request->all());
     }
 
     /**
@@ -65,7 +65,7 @@ class NotasProjectController extends Controller
      */
     public function update(Request $request, $id, $notaId)
     {
-        return $this->repository->find($notaId)->update($request->all());
+        return $this->service->find($notaId)->update($request->all());
     }
 
     /**

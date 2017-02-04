@@ -4,16 +4,15 @@ namespace projectmanager\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use projectmanager\Repositories\ProjectRepository;
-use projectmanager\Entities\Project;
-use projectmanager\Validators\ProjectValidator;
-use projectmanager\Presenters\ProjectPresenter;
+use projectmanager\Repositories\ArquivosProjectRepository;
+use projectmanager\Entities\ArquivosProject;
+use projectmanager\Validators\ArquivosProjectValidator;
 
 /**
- * Class ProjectRepositoryEloquent
+ * Class ArquivosProjectRepositoryEloquent
  * @package namespace projectmanager\Repositories;
  */
-class ProjectRepositoryEloquent extends BaseRepository implements ProjectRepository
+class ArquivosProjectRepositoryEloquent extends BaseRepository implements ArquivosProjectRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +21,7 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
      */
     public function model()
     {
-        return Project::class;
+        return ArquivosProject::class;
     }
 
     
@@ -33,11 +32,5 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
-    }
-
-
-    public function presenter()
-    {
-        return ProjectPresenter::class;
     }
 }

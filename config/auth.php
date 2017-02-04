@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => projectmanager\User::class,
+    'model' => projectmanager\Entities\User::class,
 
     /*
     |--------------------------------------------------------------------------

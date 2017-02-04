@@ -6,7 +6,7 @@ use Auth;
 class Verifier
 {
 	public function verify($username, $password)
-  	{
+  	{	
   		$credentials = [
         	'email'    => $username,
         	'password' => $password,

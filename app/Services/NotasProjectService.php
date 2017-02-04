@@ -18,7 +18,7 @@ class NotasProjectService
 	 */
 	protected $validator;
 
-	public function __constuct(NotasProjectRepository $repository, NotasProjectValidator $validator)
+	public function __construct(NotasProjectRepository $repository, NotasProjectValidator $validator)
 	{
 		$this->repository = $repository;
 		$this->validator = $validator;

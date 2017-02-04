@@ -138,8 +138,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-        //LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
-        //LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
 

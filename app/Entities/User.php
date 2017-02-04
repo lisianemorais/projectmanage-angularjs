@@ -41,9 +41,14 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
 
-    public function project()
+    public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class, 'owner_id');
+    }
+
+    public function membrosProjects()
+    {
+        return $this->belongsToMany(Project::class, 'membros_projects',  'membro_id','project_id');
     }
 
 }
